@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.-->
+</body>
+</html>
+<script>
+    let f0 = 0;
+    let f1 = 1;
+    let totalSum = 1;
+    let fnMinus2 = f0;
+    let fnMinus1 = f1;
+    for (let count = 3; count <= 20; count++) {
+        let fn = fnMinus1 + fnMinus2;
+        totalSum += fn;
+        fnMinus2 = fnMinus1;
+        fnMinus1 = fn;
+    }
+    alert(totalSum);
+</script>

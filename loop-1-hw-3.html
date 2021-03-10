@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.-->
+</body>
+</html>
+<script>
+    let f0 = 0;
+    let f1 = 1;
+    document.write(f0 + ", " + f1 + ", ");
+    let fnMinus2 = f0;
+    let fnMinus1 = f1;
+    for (let count = 3; count <= 20; count++) {
+        let fn = fnMinus1 + fnMinus2;
+        document.write(fn + ", ");
+        fnMinus2 = fnMinus1;
+        fnMinus1 = fn;
+    }
+</script>

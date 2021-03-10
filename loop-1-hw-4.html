@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.-->
+</body>
+</html>
+<script>
+    let f0 = 0;
+    let f1 = 1;
+    let fnMinus2 = f0;
+    let fnMinus1 = f1;
+    let isFound = false;
+    while (!isFound) {
+        let fn = fnMinus1 + fnMinus2;
+        let isDivisibleBy5 = fn%5 === 0;
+        if (isDivisibleBy5) {
+            document.write(fn)
+            isFound = true;
+        }
+        fnMinus2 = fnMinus1;
+        fnMinus1 = fn;
+    }
+</script>
