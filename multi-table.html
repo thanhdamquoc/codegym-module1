@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table</title>
+    <style>
+        .multi-table td {
+            border: 1px solid black;
+        }
+        .container {
+            border: 1px solid black;
+            display: inline-flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+
+    </div>
+</body>
+</html>
+<script>
+    let tableContent = "<table class='multi-table'>";
+    for (let row = 1; row <= 9; row++) {
+        tableContent += "<tr>";
+        for (let col = 2; col <= 9; col++) {
+            let result = col * row;
+            tableContent += ("<td>" + col + "x" + row + "=" + result + "</td>")
+        }
+        tableContent += "</tr>";
+    }
+    tableContent += "</table>";
+    document.getElementById("container").innerHTML = tableContent;
+</script>
