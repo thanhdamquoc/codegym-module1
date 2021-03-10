@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2  số chẵn. -->
+<!--Ví dụ nếu bạn nhập vào 025468 thì kết quả của chương trình sẽ là 0-254-6-8.-->
+</body>
+</html>
+<script>
+let test = "025468";
+let arr = [];
+for (let i = 0; i < test.length; i++) {
+    arr[i] = test.substring(i,i+1);
+}
+let result = "";
+for (let i = 0; i < arr.length; i++) {
+    let thisNum = arr[i];
+    let isLastNum = (i === (arr.length - 1));
+    if (isLastNum) {
+        result += thisNum
+    } else {
+        let nextNum = arr[i+1];
+        let isThisNumEven = (thisNum%2 === 0);
+        let isNextNumEven = (nextNum%2 === 0);
+        if (isThisNumEven && isNextNumEven) {
+            result += thisNum + "-";
+        } else {
+            result += thisNum;
+        }
+    }
+}
+alert(result);
+</script>

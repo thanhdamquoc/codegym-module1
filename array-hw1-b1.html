@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 1: Viết một chương trình Javascript để nối tất cả các phần tử trong một mảng chuỗi lại với nhau. -->
+<!--Ví dụ có mảng chuỗi như sau: myColor = ["Red", "Green", "White", "Black"];-->
+<!--Sau khi thực thi chương trình sẽ trả về dạng như sau :-->
+<!--"Red,Green,White,Black"-->
+</body>
+</html>
+<script>
+    let myColor = ["Red", "Green", "White", "Black"];
+    alert(arrayToString(myColor));
+
+    function arrayToString(array) {
+        let result = "";
+        for (let i = 0; i < array.length; i++) {
+            if (i === (array.length - 1)) {
+                result += array[i];
+            } else {
+                result += array[i] + ",";
+            }
+        }
+        return result;
+    }
+</script>
