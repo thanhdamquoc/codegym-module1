@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Number</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let numbers = parseInt(prompt("enter number of prime numbers you want to be printed"));
+    let count = 0;
+    let N = 2;
+    while (count < numbers) {
+        let countDivisible = 0;
+        for (let denominator = 1; denominator <= N; denominator++) {
+            let isDivisible = N%denominator === 0;
+            if (isDivisible) {
+                countDivisible++;
+            }
+        }
+        let isPrimeNumber = countDivisible ===2
+        if (isPrimeNumber) {
+            document.write(N + ", ")
+            count++;
+        }
+        N++;
+    }
+</script>
