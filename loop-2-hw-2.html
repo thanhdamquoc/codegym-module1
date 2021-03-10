@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 2: Tính giai thừa của một số nguyên dương-->
+</body>
+</html>
+<script>
+    let num = parseInt(prompt("Enter a positive integer"));
+    let factorial = 1;
+    if (num < 1) {
+        alert("Number is not a positive integer");
+    } else {
+        for (let i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        document.write(factorial);
+    }
+</script>

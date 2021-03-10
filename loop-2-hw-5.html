@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.-->
+</body>
+</html>
+<script>
+    let deposit = parseInt(prompt("Tien ban dau"));
+    let months = parseInt(prompt("So thang"));
+    let intRate = parseInt(prompt("Lai xuat"));
+    let years = (months / 12);
+    let final = deposit;
+    for (let year = 1; year <= years; year++) {
+        final *= ((100 + intRate)/100);
+    }
+    let int = final - deposit;
+    document.write(int);
+</script>
