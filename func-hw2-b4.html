@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+
+    function isNumber(char) {
+        if (isNaN(char)) {
+            return  false;
+        } else {
+            return true;
+        }
+    }
+
+    alert(isNumber("1"));
+    alert(isNumber("a"));
+</script>

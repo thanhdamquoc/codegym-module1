@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+    // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+
+    function isValueInArray(arr, findValue) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === findValue) {
+                count++;
+            }
+        }
+        if (count === 0) {
+            count = -1
+        }
+        return count;
+    }
+
+    let arr = [1,2,3,4,2,2,1];
+    alert(isValueInArray(arr,1));
+    alert(isValueInArray(arr,2));
+    alert(isValueInArray(arr,5));
+</script>

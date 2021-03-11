@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không.
+    // Nếu là nguyên dương trả về true, ngược lại trả về false.
+
+    function isPositiveInteger(num) {
+        let result = false
+        if (num === parseInt(num)) {
+            if (num > 0) {
+                result = true;
+            } else {
+                result = false;
+            }
+        } else {
+            result = "Not an integer";
+        }
+        return result;
+    }
+
+    alert(isPositiveInteger(-1));
+    alert(isPositiveInteger(0));
+    alert(isPositiveInteger(5.2));
+    alert(isPositiveInteger(1));
+
+
+</script>
