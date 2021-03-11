@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        } else {
+            let countDivisible = 0;
+            for (let i = 1; i <= number; i++) {
+                let isDivisible = ((number % i) === 0);
+                if (isDivisible) {
+                    countDivisible++;
+                }
+            }
+            return (countDivisible === 2);
+        }
+    }
+
+    alert(isPrime(1));
+    alert(isPrime(2));
+    alert(isPrime(3));
+    alert(isPrime(4));
+    alert(isPrime(5));
+    alert(isPrime(97));
+
+</script>
