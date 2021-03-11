@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .game-table td {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-weight: bold;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+<h1>Tic Tac Toe</h1>
+</body>
+</html>
+<script>
+    let currentPlayer = 0;
+    let playerChar;
+    //generate table & initial game state
+    let tableContent = "";
+    let gameState = [];
+    let gameOver = false;
+
+    tableContent += "<table class='game-table'>";
+    for (let i = 0; i < 3; i++) {
+        tableContent += "<tr>";
+        gameState[i] = [];
+        for (let j = 0; j < 3; j++) {
+            tableContent += "<td id='cell-" + i + "-" + j + "' onclick='move(" + i + "," + j + ")'></td>";
+            gameState[i][j] = null;
+        }
+        tableContent += "</tr>";
+    }
+    tableContent += "</table>";
+
+    document.write(tableContent);
+    //define function move
+    function move(i,j) {
+        let isAvailable = (gameState[i][j] == null);
+        if (isAvailable && !gameOver) {
+            //update screen
+            if (currentPlayer === 0) {
+                playerChar = "O";
+            } else {
+                playerChar = "X";
+            }
+
+            let cellClickedID = ("cell-" + i + "-" + j);
+            let cellClicked = document.getElementById(cellClickedID);
+            cellClicked.innerHTML = playerChar;
+            //update game state
+            gameState[i][j] = currentPlayer;
+            //check if game is over
+            checkWin()
+            //change player
+            currentPlayer = ((currentPlayer + 1)%2)
+        }
+    }
+
+    function checkWin() {
+        //check rows
+        for (let i = 0; i < 3; i++) {
+            if ((gameState[i][0] === gameState[i][1]) && (gameState[i][1] === gameState[i][2]) && (gameState[i][0] != null)) {
+                endGame();
+            }
+        }
+        //check columns
+        for (let j = 0; j < 3; j++) {
+            if ((gameState[0][j] === gameState[1][j]) && (gameState[1][j] === gameState[2][j]) && (gameState[0][j] != null)) {
+                endGame();
+            }
+        }
+        //check diagonal
+        if ((gameState[0][0] === gameState[1][1]) && (gameState[1][1] === gameState[2][2]) && (gameState[0][0] != null)) {
+            endGame();
+        }
+        if ((gameState[0][2] === gameState[1][1]) && (gameState[1][1] === gameState[2][0]) && (gameState[1][1] != null)) {
+            endGame();
+        }
+    }
+
+    function endGame() {
+        alert(playerChar + " won");
+        gameOver = true;
+    }
+</script>
