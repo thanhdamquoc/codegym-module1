@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 3- Viết chương trình khởi tạo mảng số nguyên. -->
+<!--Hiển hiện giá trị lớn nhất trong mảng đó. -->
+<!--In ra giá trị trung bình của các phần tử trong mảng.-->
+</body>
+</html>
+<script>
+    //=====Initialize an array of 10 integers=====
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    let numbers = [];
+    let randomMin = 0;
+    let randomMax = 1000;
+    for (let i = 0; i < 10; i++) {
+        numbers[i] = getRandomInt(randomMin,randomMax);
+    }
+
+    document.write("Array of 10 integers: " + numbers + "<br>")
+    //============================================
+
+    //find max & average
+    let maxNum = numbers[0];
+    let totalSum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        let num = numbers[i];
+        totalSum += num;
+        if (num > maxNum) {
+            maxNum = num;
+        }
+    }
+    let average = totalSum / numbers.length;
+    document.write("Max=" + maxNum + "<br>");
+    document.write("Average=" + average + "<br>");
+    //=============================
+
+</script>

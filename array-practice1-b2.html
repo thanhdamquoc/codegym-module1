@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. -->
+<!--Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó-->
+</body>
+</html>
+<script>
+    //=====Initialize an array of 10 integers=====
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    let numbers = [];
+    let randomMin = 0;
+    let randomMax = 1000;
+    for (let i = 0; i < 10; i++) {
+        numbers[i] = getRandomInt(randomMin,randomMax);
+    }
+
+    document.write("Array of 10 integers: " + numbers + "<br>")
+    //============================================
+
+    //find max
+    let maxNum = numbers[0];
+    for (let i = 0; i < numbers.length; i++) {
+        let num = numbers[i];
+        if (num > maxNum) {
+            maxNum = num;
+        }
+    }
+    document.write("Max=" + maxNum);
+    //=============================
+
+</script>
