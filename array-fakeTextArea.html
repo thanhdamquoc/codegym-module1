@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Text Area</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+        textarea {
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Type anything slowly</h1>
+    <textarea id="txt-area""></textarea>
+</div>
+</body>
+</html>
+<script>
+    let textArea = document.getElementById("txt-area");
+    let message = ["I", " ", "a", "m", " ", "v", "e", "r", "y", " ", "s", "t", "u", "p", "i", "d", "!", "!", "!"];
+    textArea.addEventListener("keyup",fakeTextArea);
+    let textLength = 0;
+    let textValue = "";
+    let maximumLength = message.length;
+    function fakeTextArea() {
+        let newTextValue = textArea.value;
+        let newTextLength = newTextValue.length;
+        if (newTextLength > maximumLength) {
+            textArea.value = ""
+        } else {
+            if (newTextLength > textLength) {
+                textArea.value = textValue + message[newTextLength-1];
+            }
+        }
+        textValue = textArea.value;
+        textLength = textArea.value.length;
+    }
+</script>
