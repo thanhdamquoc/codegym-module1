@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    let Mobile = function(name) {
+        this.name = name;
+        this.batteryStatus = 100;
+        this.draftMessages = [];
+        this.inboxMessages = [];
+        this.sentMessages = [];
+        this.isOn = false;
+
+        this.checkPower = function () {
+            return this.isOn;
+        }
+        this.turnOn = function () {
+            this.isOn = true;
+        }
+        this.turnOff = function () {
+            this.isOn = false;
+        }
+        this.chargePhone = function () {
+            this.batteryStatus = 100;
+        }
+        this.createMessage = function (messageContent) {
+            if (this.isOn === true) {
+                this.decreaseBattery();
+                this.draftMessages.push(messageContent+" From " + this.name);
+            } else {
+                alert("Phone is not on!")
+            }
+        }
+        this.checkDraft = function () {
+            if (this.isOn === true) {
+                this.decreaseBattery();
+                return this.draftMessages;
+            }
+        }
+
+        this.sendMessage = function (messageID,toPhone) {
+            if (this.isOn === true) {
+                this.decreaseBattery();
+                let messageContent = this.draftMessages[messageID];
+                this.sentMessages.push(messageContent);
+                this.draftMessages.splice(messageID,1);
+                toPhone.inboxMessages.push(messageContent);
+            } else {
+                alert("Phone is not on!")
+            }
+        }
+        this.checkInbox = function () {
+            if (this.isOn === true) {
+                this.decreaseBattery();
+                return this.inboxMessages;
+            } else {
+                alert("Phone is not on!")
+            }
+        }
+        this.checkSentMessages = function () {
+            if (this.isOn === true) {
+                this.decreaseBattery();
+                return this.sentMessages;
+            } else {
+                alert("Phone is not on!")
+            }
+        }
+        this.decreaseBattery = function () {
+            this.batteryStatus--;
+        }
+    }
+    //     Khởi tạo các đối tượng điện thoại và thực hiện kịch bản sau:
+    //     Có một chiếc điện thoại nokia và một chiếc iphone
+//      Chiếc điện thoại nokia soạn tin nhắn với nội dung bất kỳ và gửi cho chiếc iphoneChiếc iphone kiểm tra inbox và hiển thị tin đó.
+    nokia = new Mobile("Nokia");
+    iphone = new Mobile("Iphone");
+    nokia.turnOn();
+    nokia.createMessage("Hello mom");
+    console.log(nokia.checkDraft());
+    nokia.sendMessage(0,iphone);
+    console.log(nokia.sentMessages);
+    console.log(iphone.inboxMessages);
+
+</script>
