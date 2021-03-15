@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+</body>
+</html>
+<script>
+    let c = document.getElementById("myCanvas")
+    let ctx = c.getContext("2d");
+    c.style.border = "1px solid black";
+    c.width = 500;
+    c.height = 500;
+
+    let Player = function Player(x,y,size) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.draw = function() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+            ctx.fillStyle = "black";
+            ctx.fill();
+        }
+    }
+
+    let player1 = new Player(20,20,20);
+    let player1Speed = 10;
+    player1.draw();
+    addEventListener("keydown",move)
+    function move(event) {
+        ctx.clearRect(0,0,c.width,c.height);
+        switch (event.keyCode) {
+            case 37:
+                player1.x-=player1Speed;
+                break;
+            case 38:
+                player1.y-=player1Speed;
+                break;
+            case 39:
+                player1.x+=player1Speed;
+                break;
+            case 40:
+                player1.y+=player1Speed;
+                break;
+        }
+        player1.draw();
+    }
+</script>
