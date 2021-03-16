@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let Remote = function Remote(id) {
+        this.id = id;
+        this.changeChannel = function(tv,setChannel) {
+            tv.channel = setChannel;
+        }
+        this.changeVolume = function (tv, setVolume) {
+            tv.volume = setVolume;
+        }
+        this.turnOffTelevision = function (tv) {
+            tv.isOn = false;
+        }
+    }
+    let Television = function Television() {
+        this.channel = 0;
+        this.volume = 0;
+        this.isOn = false;
+        this.turnOn = function () {
+            this.isOn = true;
+        }
+        this.changeChannel = function(setChannel) {
+            this.channel = setChannel;
+        }
+        this.changeVolume = function (setVolume) {
+            this.volume = setVolume;
+        }
+    }
+    let myTivi = new Television();
+    let myRemote = new Remote(1);
+    myTivi.turnOn();
+    console.log(myTivi.isOn)
+    myTivi.changeChannel(7);
+    console.log(myTivi.channel);
+    myRemote.changeChannel(myTivi,3);
+    console.log(myTivi.channel);
+    console.log(myTivi.volume);
+    myTivi.changeVolume(myTivi.volume+=2);
+    console.log(myTivi.volume);
+    myRemote.turnOffTelevision(myTivi);
+    console.log(myTivi.isOn)
+</script>
